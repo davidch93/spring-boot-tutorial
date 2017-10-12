@@ -3,11 +3,15 @@ server:
 spring:
   application:
     name: config-service
+  profiles:
+    active:
+    - native
   cloud:
     config:
       server:
-        git:
-          uri: file:///Workspace/my-workspace/spring-boot-tutorial/spring-cloud/spring-cloud-eureka/application-config
+        native:
+          searchLocations: file:///Workspace/my-workspace/spring-boot-tutorial/spring-cloud/spring-cloud-eureka/application-config
+
 eureka:
   client:
     region: default
