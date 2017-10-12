@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: file://davidch93/spring-boot-tutorial/spring-cloud/spring-cloud-eureka/application-config
+          uri: file:///Workspace/my-workspace/spring-boot-tutorial/spring-cloud/spring-cloud-eureka/application-config
 eureka:
   client:
     region: default
