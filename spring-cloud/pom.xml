@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.dch.tutorial</groupId>
+		<artifactId>spring-boot-tutorial</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>com.dch.tutorial.cloud</groupId>
+	<artifactId>spring-cloud</artifactId>
+	<packaging>pom</packaging>
+	<name>Spring Cloud Tutorial</name>
+	<description>Tutorial project for microservices-based using Spring Cloud. This tutorial based on Spring 4 and Java 8.</description>
+
+	<properties>
+		<spring-cloud-dependencies.version>Dalston.SR3</spring-cloud-dependencies.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<modules>
+		<module>spring-cloud-consul</module>
+		<module>spring-cloud-eureka</module>
+	</modules>
+</project>

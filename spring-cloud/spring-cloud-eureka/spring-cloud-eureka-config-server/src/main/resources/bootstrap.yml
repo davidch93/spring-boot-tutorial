@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://davidch93/spring-boot-tutorial/spring-cloud/spring-cloud-eureka/application-config

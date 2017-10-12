@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.dch.tutorial.cloud</groupId>
+		<artifactId>spring-cloud</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>spring-cloud-consul</artifactId>
+	<packaging>pom</packaging>
+	<name>Spring Cloud Consul Tutorial</name>
+	<description>Tutorial project for microservices-based using Spring Cloud with Consul Server. Consul is a highly available and distributed service discovery and KV store designed with support for the modern data center to make distributed systems</description>
+
+	<modules>
+		<module>spring-cloud-consul-server</module>
+	</modules>
+</project>
