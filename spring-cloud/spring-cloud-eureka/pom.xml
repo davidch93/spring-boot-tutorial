@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>spring-cloud-eureka-config-server</module>
+		<module>spring-cloud-eureka-gateway</module>
 		<module>spring-cloud-eureka-server</module>
 	</modules>
 </project>
