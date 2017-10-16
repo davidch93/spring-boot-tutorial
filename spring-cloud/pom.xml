@@ -16,6 +16,8 @@
 
 	<properties>
 		<spring-cloud-dependencies.version>Dalston.SR3</spring-cloud-dependencies.version>
+		<springfox-swagger2.version>2.6.1</springfox-swagger2.version>
+		<springfox-swagger-ui.version>2.6.1</springfox-swagger-ui.version>
 	</properties>
 
 	<dependencyManagement>
@@ -36,6 +38,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger-ui.version}</version>
 		</dependency>
 	</dependencies>
 
