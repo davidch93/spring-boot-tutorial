@@ -18,5 +18,6 @@
 		<module>spring-cloud-eureka-gateway</module>
 		<module>spring-cloud-eureka-server</module>
 		<module>spring-cloud-eureka-book-service</module>
+		<module>spring-cloud-eureka-rating-service</module>
 	</modules>
 </project>

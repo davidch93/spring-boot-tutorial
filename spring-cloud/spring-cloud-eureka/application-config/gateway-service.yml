@@ -11,10 +11,10 @@ zuul:
       sensitive-headers: Set-Cookie,Authorization
       url: http://localhost:8082
     book-service:
-      path: /book-service/**
+      path: /book-api/**
       sensitive-headers: Set-Cookie,Authorization
     rating-service:
-      path: /rating-service/**
+      path: /rating-api/**
       sensitive-headers: Set-Cookie,Authorization
 hystrix:
   command:
