@@ -1,9 +1,23 @@
+# Application
 server:
   port: 8080
 spring:
   application:
     name: gateway-service
 
+# Actuator
+endpoints:
+  info:
+    id: gateway_info # by which this endpoint will be accessed over HTTP
+    enabled: true # if true then it can be accessed otherwise not
+    sensitive: false # if true then need the authorization to show crucial information over HTTP
+info:
+  app:
+    name: Spring Cloud Eureka Gateway
+    description: API Gateway is the single entry point into the microservice ecosystem from the outside world.
+    version: 1.0.0
+
+# Zuul
 zuul:
   routes:
     discovery-service:
