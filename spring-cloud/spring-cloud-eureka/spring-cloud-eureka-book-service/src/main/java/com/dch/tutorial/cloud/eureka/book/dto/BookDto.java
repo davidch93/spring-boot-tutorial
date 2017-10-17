@@ -1,7 +1,9 @@
 package com.dch.tutorial.cloud.eureka.book.dto;
 
+import java.util.List;
+
 /**
- * DTO class used for Book Entity data transfer process.
+ * DTO class used for Book with rate details data transfer process.
  * 
  * @author David.Christianto
  */
@@ -9,6 +11,7 @@ public class BookDto {
 
 	private String author;
 	private String title;
+	private List<RatingDto> rates;
 
 	/**
 	 * @return the author
@@ -38,6 +41,21 @@ public class BookDto {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/**
+	 * @return the rates
+	 */
+	public List<RatingDto> getRates() {
+		return rates;
+	}
+
+	/**
+	 * @param rates
+	 *            the rates to set
+	 */
+	public void setRates(List<RatingDto> rates) {
+		this.rates = rates;
 	}
 
 }

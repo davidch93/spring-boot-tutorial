@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,17 +61,33 @@ public class BookRestController {
 	public ContentListDto<BookDto> getAll(@RequestParam("author") String author, @RequestParam("title") String title,
 			Pageable pageable) {
 
-		Page<BookEntity> bookEntities = bookService.findByAuthorOrTitle(author, title, pageable);
+		Page<BookEntity> bookEntities = bookService.getByAuthorOrTitle(author, title, pageable);
 		if (pageable.getPageNumber() > bookEntities.getTotalPages())
 			throw new RuntimeException("Resource not found!");
 
 		ContentListDto<BookDto> bookDtos = new ContentListDto<>();
-		bookDtos.setPage(pageable);
+		bookDtos.setPage(pageable.getPageNumber());
+		bookDtos.setSize(pageable.getPageSize());
 		bookDtos.setActualSize(bookEntities.getTotalElements());
 		bookDtos.setContentList(bookEntities.getContent().stream()
 				.map(bookEntity -> copyProperties(bookEntity, BookDto.class, null)).collect(Collectors.toList()));
 
 		return bookDtos;
+	}
+
+	/**
+	 * API that used to get book with details rating by book ID.
+	 * 
+	 * @param bookId
+	 *            Book ID.
+	 * @return {@link BookDto}
+	 */
+	@GetMapping(value = "/get-with-ratings/{bookId}")
+	public BookDto getWithRatings(@PathVariable("bookId") Long bookId) {
+		if (bookId == null || bookId == 0L)
+			throw new RuntimeException("Book ID not found!");
+
+		return bookService.getWithRatingsByBookId(bookId);
 	}
 
 	/**

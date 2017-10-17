@@ -66,7 +66,8 @@ public class RatingRestController {
 			throw new RuntimeException("Resource not found!");
 
 		ContentListDto<RatingDto> ratingDtos = new ContentListDto<>();
-		ratingDtos.setPage(pageable);
+		ratingDtos.setPage(pageable.getPageNumber());
+		ratingDtos.setSize(pageable.getPageSize());
 		ratingDtos.setActualSize(ratingEntities.getTotalElements());
 		ratingDtos.setContentList(ratingEntities.getContent().stream()
 				.map(ratingEntity -> copyProperties(ratingEntity, RatingDto.class, null)).collect(Collectors.toList()));

@@ -3,6 +3,7 @@ package com.dch.tutorial.cloud.eureka.book.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.dch.tutorial.cloud.eureka.book.dto.BookDto;
 import com.dch.tutorial.cloud.eureka.book.entity.BookEntity;
 
 /**
@@ -30,5 +31,14 @@ public interface BookService {
 	 *            Pagination information.
 	 * @return {@link Page}&lt;{@link BookEntity}&gt; List of book.
 	 */
-	Page<BookEntity> findByAuthorOrTitle(String author, String title, Pageable pageable);
+	Page<BookEntity> getByAuthorOrTitle(String author, String title, Pageable pageable);
+
+	/**
+	 * Method used to get book with details rate by Book ID.
+	 * 
+	 * @param bookId
+	 *            Book ID.
+	 * @return {@link}
+	 */
+	BookDto getWithRatingsByBookId(Long bookId);
 }
