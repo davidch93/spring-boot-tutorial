@@ -1,10 +1,14 @@
 package com.dch.tutorial.cloud.eureka.rating.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 /**
  * DTO class used for Rating Entity data transfer process.
  * 
  * @author David.Christianto
  */
+@JsonInclude(Include.NON_NULL)
 public class RatingDto {
 
 	private Long bookId;

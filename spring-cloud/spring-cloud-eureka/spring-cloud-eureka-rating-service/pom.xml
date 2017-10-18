@@ -13,6 +13,12 @@
 	<name>Rating Services</name>
 
 	<dependencies>
+		<!-- Cloud Eureka -->
+		<dependency>
+			<groupId>com.dch.tutorial.cloud</groupId>
+			<artifactId>spring-cloud-eureka-common</artifactId>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

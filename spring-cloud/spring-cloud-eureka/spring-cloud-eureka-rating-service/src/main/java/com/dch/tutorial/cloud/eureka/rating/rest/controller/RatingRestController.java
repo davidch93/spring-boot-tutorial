@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dch.tutorial.cloud.eureka.rating.dto.ContentListDto;
-import com.dch.tutorial.cloud.eureka.rating.dto.ErrorDto;
+import com.dch.cloud.eureka.common.dto.ContentListDto;
+import com.dch.cloud.eureka.common.dto.ErrorDto;
+import com.dch.cloud.eureka.common.dto.ResponseServiceDto;
+import com.dch.cloud.eureka.common.enums.GenericStatus;
 import com.dch.tutorial.cloud.eureka.rating.dto.RatingDto;
 import com.dch.tutorial.cloud.eureka.rating.entity.RatingEntity;
 import com.dch.tutorial.cloud.eureka.rating.service.RatingService;
@@ -57,7 +59,7 @@ public class RatingRestController {
 	 * @return List of rating.
 	 */
 	@GetMapping(value = "/get")
-	public ContentListDto<RatingDto> getByBookId(@RequestParam("bookId") Long bookId, Pageable pageable) {
+	public ResponseServiceDto<RatingDto> getByBookId(@RequestParam("bookId") Long bookId, Pageable pageable) {
 		if (bookId == null || bookId == 0L)
 			throw new RuntimeException("Book ID not found!");
 
@@ -72,7 +74,7 @@ public class RatingRestController {
 		ratingDtos.setContentList(ratingEntities.getContent().stream()
 				.map(ratingEntity -> copyProperties(ratingEntity, RatingDto.class, null)).collect(Collectors.toList()));
 
-		return ratingDtos;
+		return new ResponseServiceDto<>(GenericStatus.SUCCESS, ratingDtos);
 	}
 
 	/**
@@ -82,8 +84,9 @@ public class RatingRestController {
 	 * @return {@link ErrorDto}
 	 */
 	@ExceptionHandler(RuntimeException.class)
-	public ErrorDto handleRuntimeException(RuntimeException ex) {
-		return new ErrorDto(ex.getClass().getSimpleName(), ex.getMessage());
+	public ResponseServiceDto<ErrorDto> handleRuntimeException(RuntimeException ex) {
+		return new ResponseServiceDto<>(GenericStatus.FAILED,
+				new ErrorDto(ex.getClass().getSimpleName(), ex.getMessage()));
 	}
 
 	/**

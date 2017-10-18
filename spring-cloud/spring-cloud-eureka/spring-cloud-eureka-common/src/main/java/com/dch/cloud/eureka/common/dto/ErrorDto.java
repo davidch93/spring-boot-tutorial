@@ -1,4 +1,4 @@
-package com.dch.tutorial.cloud.eureka.rating.dto;
+package com.dch.cloud.eureka.common.dto;
 
 /**
  * DTO class used for store error information.

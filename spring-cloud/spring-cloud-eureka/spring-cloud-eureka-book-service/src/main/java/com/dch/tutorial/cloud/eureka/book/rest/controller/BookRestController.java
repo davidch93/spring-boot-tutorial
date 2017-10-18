@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dch.cloud.eureka.common.dto.ContentListDto;
+import com.dch.cloud.eureka.common.dto.ErrorDto;
+import com.dch.cloud.eureka.common.dto.ResponseServiceDto;
+import com.dch.cloud.eureka.common.enums.GenericStatus;
 import com.dch.tutorial.cloud.eureka.book.dto.BookDto;
-import com.dch.tutorial.cloud.eureka.book.dto.ContentListDto;
-import com.dch.tutorial.cloud.eureka.book.dto.ErrorDto;
 import com.dch.tutorial.cloud.eureka.book.entity.BookEntity;
 import com.dch.tutorial.cloud.eureka.book.service.BookService;
 
@@ -58,8 +60,8 @@ public class BookRestController {
 	 * @return List of book.
 	 */
 	@GetMapping(value = "/get-all")
-	public ContentListDto<BookDto> getAll(@RequestParam("author") String author, @RequestParam("title") String title,
-			Pageable pageable) {
+	public ResponseServiceDto<BookDto> getAll(@RequestParam("author") String author,
+			@RequestParam("title") String title, Pageable pageable) {
 
 		Page<BookEntity> bookEntities = bookService.getByAuthorOrTitle(author, title, pageable);
 		if (pageable.getPageNumber() > bookEntities.getTotalPages())
@@ -72,7 +74,7 @@ public class BookRestController {
 		bookDtos.setContentList(bookEntities.getContent().stream()
 				.map(bookEntity -> copyProperties(bookEntity, BookDto.class, null)).collect(Collectors.toList()));
 
-		return bookDtos;
+		return new ResponseServiceDto<>(GenericStatus.SUCCESS, bookDtos);
 	}
 
 	/**
@@ -83,11 +85,11 @@ public class BookRestController {
 	 * @return {@link BookDto}
 	 */
 	@GetMapping(value = "/get-with-ratings/{bookId}")
-	public BookDto getWithRatings(@PathVariable("bookId") Long bookId) {
+	public ResponseServiceDto<BookDto> getWithRatings(@PathVariable("bookId") Long bookId) {
 		if (bookId == null || bookId == 0L)
 			throw new RuntimeException("Book ID not found!");
 
-		return bookService.getWithRatingsByBookId(bookId);
+		return new ResponseServiceDto<>(GenericStatus.SUCCESS, bookService.getWithRatingsByBookId(bookId));
 	}
 
 	/**
@@ -97,8 +99,9 @@ public class BookRestController {
 	 * @return {@link ErrorDto}
 	 */
 	@ExceptionHandler(RuntimeException.class)
-	public ErrorDto handleRuntimeException(RuntimeException ex) {
-		return new ErrorDto(ex.getClass().getSimpleName(), ex.getMessage());
+	public ResponseServiceDto<ErrorDto> handleRuntimeException(RuntimeException ex) {
+		return new ResponseServiceDto<>(GenericStatus.FAILED,
+				new ErrorDto(ex.getClass().getSimpleName(), ex.getMessage()));
 	}
 
 	/**

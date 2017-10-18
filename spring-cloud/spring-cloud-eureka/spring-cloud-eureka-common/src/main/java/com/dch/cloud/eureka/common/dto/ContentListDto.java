@@ -1,4 +1,4 @@
-package com.dch.tutorial.cloud.eureka.book.dto;
+package com.dch.cloud.eureka.common.dto;
 
 import java.util.List;
 
