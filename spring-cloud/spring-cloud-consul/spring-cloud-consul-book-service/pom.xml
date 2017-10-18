@@ -13,6 +13,12 @@
 	<name>Book Services</name>
 
 	<dependencies>
+		<!-- Cloud Consul -->
+		<dependency>
+			<groupId>com.dch.tutorial.cloud</groupId>
+			<artifactId>spring-cloud-consul-common</artifactId>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

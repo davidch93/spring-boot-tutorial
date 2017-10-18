@@ -1,4 +1,4 @@
-package com.dch.tutorial.cloud.consul.book.dto;
+package com.dch.cloud.consul.book.common.dto;
 
 /**
  * DTO class used for store error information.

@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dch.tutorial.cloud.consul.rating.dto.ContentListDto;
-import com.dch.tutorial.cloud.consul.rating.dto.ErrorDto;
+import com.dch.cloud.consul.book.common.dto.ContentListDto;
+import com.dch.cloud.consul.book.common.dto.ErrorDto;
+import com.dch.cloud.consul.book.common.dto.ResponseServiceDto;
+import com.dch.cloud.consul.book.common.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.rating.dto.RatingDto;
-import com.dch.tutorial.cloud.consul.rating.dto.ResponseServiceDto;
 import com.dch.tutorial.cloud.consul.rating.entity.RatingEntity;
-import com.dch.tutorial.cloud.consul.rating.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.rating.service.RatingService;
 
 /**

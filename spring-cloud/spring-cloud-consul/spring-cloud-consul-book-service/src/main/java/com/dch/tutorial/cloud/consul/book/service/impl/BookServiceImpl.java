@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.dch.cloud.consul.book.common.dto.ResponseServiceDto;
+import com.dch.cloud.consul.book.common.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.book.dto.BookDto;
 import com.dch.tutorial.cloud.consul.book.dto.RatingDto;
-import com.dch.tutorial.cloud.consul.book.dto.ResponseServiceDto;
 import com.dch.tutorial.cloud.consul.book.entity.BookEntity;
-import com.dch.tutorial.cloud.consul.book.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.book.repository.BookRepository;
 import com.dch.tutorial.cloud.consul.book.service.BookService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;

@@ -13,8 +13,23 @@
 	<name>Spring Cloud Consul Tutorial</name>
 	<description>Tutorial project for microservices-based using Spring Cloud with Consul Server. Consul is a highly available and distributed service discovery and KV store designed with support for the modern data center to make distributed systems</description>
 
+	<properties>
+		<spring-cloud-consul.version>1.0.0</spring-cloud-consul.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.dch.tutorial.cloud</groupId>
+				<artifactId>spring-cloud-consul-common</artifactId>
+				<version>${spring-cloud-consul.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<modules>
 		<module>spring-cloud-consul-gateway</module>
+		<module>spring-cloud-consul-common</module>
 		<module>spring-cloud-consul-book-service</module>
 		<module>spring-cloud-consul-rating-service</module>
 	</modules>
