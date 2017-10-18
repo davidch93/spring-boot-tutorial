@@ -1,19 +1,19 @@
-package com.dch.tutorial.cloud.eureka.gateway;
+package com.dch.tutorial.cloud.consul.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
- * Main application of Gateway service using Eureka Server and used to start
+ * Main application of Gateway service using Consul Server and used to start
  * application.
  * 
  * @author David.Christianto
  */
 @SpringBootApplication
 @EnableZuulProxy
-@EnableEurekaClient
+@EnableDiscoveryClient
 public class GatewayApplication {
 
 	/**

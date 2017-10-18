@@ -1,6 +1,6 @@
 # Application
 server:
-  port: 8083
+  port: 0 # Random port
 spring:
   application:
     name: book-service

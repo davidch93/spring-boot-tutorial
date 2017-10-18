@@ -1,6 +1,6 @@
 # Application
 server:
-  port: 8084
+  port: 0 # Random port
 spring:
   application:
     name: rating-service
