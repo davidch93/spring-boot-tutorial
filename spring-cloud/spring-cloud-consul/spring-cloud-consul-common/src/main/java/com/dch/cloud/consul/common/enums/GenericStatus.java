@@ -1,4 +1,4 @@
-package com.dch.cloud.consul.book.common.enums;
+package com.dch.cloud.consul.common.enums;
 
 /**
  * List of custom HTTP response status code in application.

@@ -1,4 +1,4 @@
-package com.dch.cloud.consul.book.common.dto;
+package com.dch.cloud.consul.common.dto;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.dch.cloud.consul.book.common.dto;
+package com.dch.cloud.consul.common.dto;
 
-import com.dch.cloud.consul.book.common.enums.GenericStatus;
+import com.dch.cloud.consul.common.enums.GenericStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.dch.cloud.consul.book.common.dto.ResponseServiceDto;
-import com.dch.cloud.consul.book.common.enums.GenericStatus;
+import com.dch.cloud.consul.common.dto.ResponseServiceDto;
+import com.dch.cloud.consul.common.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.book.dto.BookDto;
 import com.dch.tutorial.cloud.consul.book.dto.RatingDto;
 import com.dch.tutorial.cloud.consul.book.entity.BookEntity;
