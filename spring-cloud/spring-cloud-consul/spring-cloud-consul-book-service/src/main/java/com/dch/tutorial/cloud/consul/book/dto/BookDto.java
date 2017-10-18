@@ -2,11 +2,15 @@ package com.dch.tutorial.cloud.consul.book.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 /**
  * DTO class used for Book with rate details data transfer process.
  * 
  * @author David.Christianto
  */
+@JsonInclude(Include.NON_NULL)
 public class BookDto {
 
 	private String author;

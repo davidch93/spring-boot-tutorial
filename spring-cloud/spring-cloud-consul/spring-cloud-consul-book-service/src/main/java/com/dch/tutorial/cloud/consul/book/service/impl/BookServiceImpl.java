@@ -11,9 +11,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.dch.tutorial.cloud.consul.book.dto.BookDto;
-import com.dch.tutorial.cloud.consul.book.dto.ContentListDto;
 import com.dch.tutorial.cloud.consul.book.dto.RatingDto;
+import com.dch.tutorial.cloud.consul.book.dto.ResponseServiceDto;
 import com.dch.tutorial.cloud.consul.book.entity.BookEntity;
+import com.dch.tutorial.cloud.consul.book.enums.GenericStatus;
 import com.dch.tutorial.cloud.consul.book.repository.BookRepository;
 import com.dch.tutorial.cloud.consul.book.service.BookService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -54,7 +55,10 @@ public class BookServiceImpl implements BookService {
 		// @formatter:on
 
 		@SuppressWarnings("unchecked")
-		ContentListDto<RatingDto> ratingDtos = restTemplate.getForObject(builder.toUriString(), ContentListDto.class);
+		ResponseServiceDto<RatingDto> ratingDtos = restTemplate.getForObject(builder.toUriString(),
+				ResponseServiceDto.class);
+		if (ratingDtos.getStatus() == GenericStatus.FAILED)
+			throw new RuntimeException("Failed get detail rating from book with ID: " + bookId);
 
 		BookEntity bookEntity = Optional.of(bookRepository.findOne(bookId))
 				.orElseThrow(() -> new RuntimeException("Book ID not found!"));
@@ -62,7 +66,7 @@ public class BookServiceImpl implements BookService {
 		BookDto bookDto = new BookDto();
 		bookDto.setAuthor(bookEntity.getAuthor());
 		bookDto.setTitle(bookEntity.getTitle());
-		bookDto.setRates(ratingDtos.getContentList());
+		bookDto.setRates(ratingDtos.getMessageList().getContentList());
 		return bookDto;
 	}
 
