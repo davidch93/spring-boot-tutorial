@@ -9,7 +9,7 @@
 	</parent>
 
 	<groupId>com.dch.tutorial.thymeleaf</groupId>
-	<artifactId>spring-mvc-thymeleaf</artifactId>
+	<artifactId>spring-webmvc-thymeleaf</artifactId>
 	<packaging>war</packaging>
 	<name>Spring Boot Web MVC Thymeleaf</name>
 	<description>Tutorial project for Spring Web MVC based using Thymeleaf. This tutorial based on Spring 4 and Java 8.</description>
