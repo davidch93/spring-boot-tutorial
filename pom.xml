@@ -34,5 +34,6 @@
 	<modules>
 		<module>camunda-rest</module>
 		<module>spring-cloud</module>
+		<module>spring-mvc-thymeleaf</module>
 	</modules>
 </project>
