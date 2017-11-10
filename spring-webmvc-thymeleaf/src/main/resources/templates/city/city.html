@@ -1,0 +1,22 @@
+<th:block xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="home" layout:fragment="sub-content">
+	<div class="col-lg-9">
+		<div class="card card-outline-secondary my-4">
+			<div class="card-header">Product Reviews</div>
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<label for="exampleInputEmail1">City name</label> 
+						<input type="text" class="form-control" aria-describedby="emailHelp" placeholder="City name">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">City code</label> 
+						<input type="text" class="form-control" placeholder="City code">
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</th:block>

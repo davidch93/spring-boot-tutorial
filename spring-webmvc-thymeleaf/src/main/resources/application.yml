@@ -22,3 +22,6 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+  messages:
+    basename: i18n/messages/messages
+    cache-seconds: 3600
