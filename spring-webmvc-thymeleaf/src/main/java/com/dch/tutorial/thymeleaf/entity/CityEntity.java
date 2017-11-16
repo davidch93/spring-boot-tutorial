@@ -2,12 +2,36 @@ package com.dch.tutorial.thymeleaf.entity;
 
 import java.io.Serializable;
 
-public class CityEntity implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.dch.tutorial.thymeleaf.common.dataaccess.BaseEntity;
+
+/**
+ * The entity used to provide data about the City and represent the columns in
+ * the database.
+ * 
+ * @author David.Christianto
+ */
+@Entity
+@Table(name = "city")
+public class CityEntity extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -6487967141827830245L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "city_id")
 	private Long cityId;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "country_code")
 	private String countryCode;
 
 	/**

@@ -13,11 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
 	/**
-	 * Index of page.
-	 * 
-	 * @param mav
-	 *            {@link ModelAndView}
-	 * @return {@link ModelAndView}
+	 * Home of page.
 	 */
 	@GetMapping(value = "")
 	public ModelAndView home(ModelAndView mav) {
@@ -26,6 +22,9 @@ public class MainController {
 		return mav;
 	}
 
+	/**
+	 * City of page.
+	 */
 	@GetMapping(value = "/city")
 	public ModelAndView city(ModelAndView mav) {
 		mav.addObject("activeTab", "city");
@@ -33,6 +32,9 @@ public class MainController {
 		return mav;
 	}
 
+	/**
+	 * Weather of page.
+	 */
 	@GetMapping(value = "/weather")
 	public ModelAndView weather(ModelAndView mav) {
 		mav.addObject("activeTab", "weather");

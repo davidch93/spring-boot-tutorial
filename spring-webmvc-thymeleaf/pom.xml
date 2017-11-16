@@ -17,8 +17,7 @@
 	<properties>
 		<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
 		<thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
-		<webjars-jquery.version>3.2.1</webjars-jquery.version>
-		<webjars-bootstrap.version>4.0.0-beta-1</webjars-bootstrap.version>
+		<webjars-bootstrap.version>4.0.0-beta.2</webjars-bootstrap.version>
 	</properties>
 
 	<dependencies>
@@ -31,37 +30,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
-		<!-- PostgreSQL -->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- HikariCP -->
-		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<!-- H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- Webjars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>${webjars-jquery.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>${webjars-bootstrap.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.webjars.npm</groupId>
+					<artifactId>popper.js</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>

@@ -1,9 +1,18 @@
 body {
 	padding-top: 54px;
+	padding-bottom: 90px;
 }
 
 @media ( min-width : 992px) {
 	body {
 		padding-top: 56px;
 	}
+}
+
+.required {
+	color: red;
+}
+
+.success {
+	color: green;
 }

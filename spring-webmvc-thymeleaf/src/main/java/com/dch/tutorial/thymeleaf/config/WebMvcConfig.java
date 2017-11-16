@@ -1,8 +1,14 @@
 package com.dch.tutorial.thymeleaf.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -25,6 +31,7 @@ import nz.net.ultraq.thymeleaf.decorators.strategies.GroupingStrategy;
  */
 @Configuration
 @EnableWebMvc
+@EnableJpaAuditing
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	private static final String[] RESOURCE_LOCATIONS = { "classpath:/META-INF/resources/", "classpath:/resources/",
@@ -95,5 +102,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 			registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 		if (!registry.hasMappingForPattern("/**"))
 			registry.addResourceHandler("/**").addResourceLocations(RESOURCE_LOCATIONS);
+	}
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();
+		resolver.setFallbackPageable(new PageRequest(0, 5));
+		argumentResolvers.add(resolver);
+		super.addArgumentResolvers(argumentResolvers);
 	}
 }

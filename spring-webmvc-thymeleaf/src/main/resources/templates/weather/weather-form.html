@@ -1,0 +1,51 @@
+<th:block xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="home" layout:fragment="sub-content">
+	<div class="col-lg-9">
+		<div class="card mt-4">
+			<div class="card-header">
+				<span th:text="#{web.content.weather.header.create}"></span>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/weather/search-by-city}" th:object="${cityDto}" method="post">
+					<div class="input-group">
+						<select class="form-control custom-select mb-2 mr-sm-2 mb-sm-0" th:field="*{name}">
+							<option th:if="${#lists.isEmpty(cities)}" th:value="null" th:text="#{web.content.weather.label.option}"></option>
+							<option th:each="city : ${cities}" th:value="${city.name+','+city.countryCode}" th:text="${city.name}"></option>
+						</select>
+						<button th:text="#{web.content.common.btn.search}" type="submit" class="btn btn-primary"></button>
+					</div>
+				</form><br/>
+
+				<th:block th:if="${openWeatherMap != null}">
+					<table>
+						<tr th:each="weather : ${openWeatherMap.weather}">
+							<td>
+								<img th:src="${'http://openweathermap.org/img/w/'+weather.icon+'.png'}"></img>
+							</td>
+							<td>
+								<b th:text="${openWeatherMap.name+', '+openWeatherMap.sys.country}"></b>&nbsp;
+								<img th:src="${'http://openweathermap.org/images/flags/'+#strings.toLowerCase(openWeatherMap.sys.country)+'.png'}"></img>&nbsp;
+								<b th:text="${weather.description}"></b>
+								<p th:text="${#numbers.formatDecimal(openWeatherMap.main.temp-273.15, 0, 2)+'&deg;C temperature from '+#numbers.formatDecimal(openWeatherMap.main.temp_min-273.15, 0, 2)+'&deg;C to '+#numbers.formatDecimal(openWeatherMap.main.temp_max-273.15, 0, 2)+'&deg;C, wind '+#numbers.formatDecimal(openWeatherMap.wind.speed, 0, 2)+' m/s. clouds '+openWeatherMap.clouds.all+'%, '+openWeatherMap.main.pressure+' hpa'}"></p>
+								<p>
+									Geo coords 
+									<b th:text="${'['+#numbers.formatDecimal(openWeatherMap.coord.lat,0,2)+', '+#numbers.formatDecimal(openWeatherMap.coord.lon,0,2)+']'}">[-6.9039, 107.6186]</b>
+								</p>
+							</td>
+						</tr>
+					</table><br/>
+				</th:block>
+
+				<form th:action="@{/weather/create}" th:object="${cityDto}" method="post">
+					<p class="required" th:if="${#fields.hasErrors('name')}" th:text="#{msg.error.field.weather.empty}"></p>
+					<div align="center">
+						<input type="hidden" name="name" th:if="${cityDto != null}" th:value="${cityDto.name}" />
+						<a class="btn btn-info col-2" th:href="@{/weather}" th:text="#{web.content.common.btn.back}"></a>
+						<button class="btn btn-primary col-2" type="submit" th:text="#{web.content.common.btn.create}"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</th:block>
