@@ -34,6 +34,7 @@
 	<modules>
 		<module>camunda-rest</module>
 		<module>spring-cloud</module>
+		<module>spring-kafka</module>
 		<module>spring-webmvc-thymeleaf</module>
 	</modules>
 </project>
