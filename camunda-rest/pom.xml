@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.dch.tutorial.camunda</groupId>
-	<artifactId>camunda-rest</artifactId>
+	<artifactId>spring-camunda-rest</artifactId>
 	<packaging>jar</packaging>
 	<name>Camunda Rest Tutorial</name>
 	<description>Tutorial project for Camunda Rest API. Camunda is an open source platform for workflow and business process automation.</description>
