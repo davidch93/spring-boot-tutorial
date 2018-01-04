@@ -1,58 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.dch.tutorial</groupId>
-		<artifactId>spring-boot-tutorial</artifactId>
-		<version>1.0.0</version>
-	</parent>
+    <parent>
+        <groupId>com.dch.tutorial</groupId>
+        <artifactId>spring-boot-tutorial</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
-	<groupId>com.dch.tutorial.thymeleaf</groupId>
-	<artifactId>spring-webmvc-thymeleaf</artifactId>
-	<packaging>jar</packaging>
-	<name>Spring Boot Web MVC Thymeleaf</name>
-	<description>Tutorial project for Spring Web MVC based using Thymeleaf. This tutorial based on Spring 4 and Java 8.</description>
+    <groupId>com.dch.tutorial.thymeleaf</groupId>
+    <artifactId>spring-webmvc-thymeleaf</artifactId>
+    <packaging>jar</packaging>
+    <name>Spring Boot Web MVC Thymeleaf</name>
+    <description>Tutorial project for Spring Web MVC based using Thymeleaf. This tutorial based on Spring 4 and Java
+        8.
+    </description>
 
-	<properties>
-		<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
-		<thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
-		<webjars-bootstrap.version>4.0.0-beta.2</webjars-bootstrap.version>
-	</properties>
+    <properties>
+        <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
+        <webjars-bootstrap.version>4.0.0-beta.2</webjars-bootstrap.version>
+    </properties>
 
-	<dependencies>
-		<!-- Spring -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
+    <dependencies>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
 
-		<!-- H2 -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
+        <!-- H2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
 
-		<!-- Webjars -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>${webjars-bootstrap.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.webjars.npm</groupId>
-					<artifactId>popper.js</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+        <!-- Webjars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${webjars-bootstrap.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.webjars.npm</groupId>
+                    <artifactId>popper.js</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 </project>

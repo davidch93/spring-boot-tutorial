@@ -1,22 +1,24 @@
 <th:block xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout/base-layout" layout:fragment="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<h1 class="my-4" th:text="#{web.content.home.title}"></h1>
-				<div class="list-group">
-					<a th:text="#{web.content.home.tab.city}" th:href="@{/city}" th:class="${activeTab == 'city'} ? 'list-group-item active' : 'list-group-item'"></a> 
-					<a th:text="#{web.content.home.tab.weather}" th:href="@{/weather}" th:class="${activeTab == 'weather'} ? 'list-group-item active' : 'list-group-item'"></a>
-				</div>
-			</div>
-			<div class="col-lg-9" layout:fragment="sub-content">
-				<div class="card mt-4">
-					<div class="card-body">
-						<p class="card-text">Weather Check</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+          layout:decorator="layout/base-layout" layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <h1 class="my-4" th:text="#{web.content.home.title}"></h1>
+                <div class="list-group">
+                    <a th:text="#{web.content.home.tab.city}" th:href="@{/city}"
+                       th:class="${activeTab == 'city'} ? 'list-group-item active' : 'list-group-item'"></a>
+                    <a th:text="#{web.content.home.tab.weather}" th:href="@{/weather}"
+                       th:class="${activeTab == 'weather'} ? 'list-group-item active' : 'list-group-item'"></a>
+                </div>
+            </div>
+            <div class="col-lg-9" layout:fragment="sub-content">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <p class="card-text">Weather Check</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </th:block>

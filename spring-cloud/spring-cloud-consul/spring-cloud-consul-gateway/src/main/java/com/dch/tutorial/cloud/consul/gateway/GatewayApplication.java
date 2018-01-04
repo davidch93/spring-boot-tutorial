@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 /**
  * Main application of Gateway service using Consul Server and used to start
  * application.
- * 
+ *
  * @author David.Christianto
  */
 @SpringBootApplication
@@ -16,13 +16,12 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableDiscoveryClient
 public class GatewayApplication {
 
-	/**
-	 * Main method to start application.
-	 * 
-	 * @param args
-	 *            arguments.
-	 */
-	public static void main(String... args) {
-		SpringApplication.run(GatewayApplication.class, args);
-	}
+    /**
+     * Main method to start application.
+     *
+     * @param args arguments.
+     */
+    public static void main(String... args) {
+        SpringApplication.run(GatewayApplication.class, args);
+    }
 }

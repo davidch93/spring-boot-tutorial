@@ -6,20 +6,19 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Main application of Rating service and used to start application.
- * 
+ *
  * @author David.Christianto
  */
 @SpringBootApplication
 @EnableDiscoveryClient
 public class RatingServiceApplication {
 
-	/**
-	 * Main method to start application.
-	 * 
-	 * @param args
-	 *            arguments.
-	 */
-	public static void main(String... args) {
-		SpringApplication.run(RatingServiceApplication.class, args);
-	}
+    /**
+     * Main method to start application.
+     *
+     * @param args arguments.
+     */
+    public static void main(String... args) {
+        SpringApplication.run(RatingServiceApplication.class, args);
+    }
 }

@@ -6,20 +6,19 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * Main application of Eureka Server and used to start application.
- * 
+ *
  * @author David.Christianto
  */
 @SpringBootApplication
 @EnableEurekaServer
 public class EurekaServerApplication {
 
-	/**
-	 * Main method to start application.
-	 * 
-	 * @param args
-	 *            arguments.
-	 */
-	public static void main(String... args) {
-		SpringApplication.run(EurekaServerApplication.class, args);
-	}
+    /**
+     * Main method to start application.
+     *
+     * @param args arguments.
+     */
+    public static void main(String... args) {
+        SpringApplication.run(EurekaServerApplication.class, args);
+    }
 }

@@ -1,92 +1,113 @@
 <th:block xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="home" layout:fragment="sub-content">
-	<div class="col-lg-9">
-		<div class="card mt-4">
-			<div class="card-header">
-				<span th:text="#{web.content.weather.header.title}"></span>
-			</div>
-			<div class="card-body">
-				<p>
-					<label th:text="#{web.content.weather.label.add}"></label>&nbsp;
-					<a th:href="@{/weather/create}" th:text="#{web.content.common.btn.add}" class="btn btn-primary"></a>&nbsp;
-					<label class="success" th:text="${message}"></label>
-				</p>
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+          layout:decorator="home" layout:fragment="sub-content">
+    <div class="col-lg-9">
+        <div class="card mt-4">
+            <div class="card-header">
+                <span th:text="#{web.content.weather.header.title}"></span>
+            </div>
+            <div class="card-body">
+                <p>
+                    <label th:text="#{web.content.weather.label.add}"></label>&nbsp;
+                    <a th:href="@{/weather/create}" th:text="#{web.content.common.btn.add}" class="btn btn-primary"></a>&nbsp;
+                    <label class="success" th:text="${message}"></label>
+                </p>
 
-				<form th:action="@{/weather/search}" method="post">
-					<div class="input-group">
-						<input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="name" th:placeholder="#{web.content.city.label.name}">
-						<button th:text="#{web.content.common.btn.search}" type="submit" class="btn btn-primary"></button>
-					</div>
-				</form><br/>
+                <form th:action="@{/weather/search}" method="post">
+                    <div class="input-group">
+                        <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="name"
+                               th:placeholder="#{web.content.city.label.name}">
+                        <button th:text="#{web.content.common.btn.search}" type="submit"
+                                class="btn btn-primary"></button>
+                    </div>
+                </form>
+                <br/>
 
-				<table class="table table-striped" th:if="${page != null}">
-					<tr>
-						<th th:text="#{web.content.weather.label.name}" colspan="2"></th>
-						<th th:text="#{web.content.common.action}"></th>
-					</tr>
-					<tr th:each="weather : ${page.content}">
-						<td>
-							<img th:src="${'http://openweathermap.org/img/w/'+weather.icon+'.png'}"></img>
-						</td>
-						<td>
-							<b th:text="${weather.cityName+', '+weather.country}"></b>&nbsp;
-							<img th:src="${'http://openweathermap.org/images/flags/'+#strings.toLowerCase(weather.country)+'.png'}"></img>&nbsp;
-							<b th:text="${weather.description}"></b>
-							<p th:text="${#numbers.formatDecimal(weather.temp-273.15, 0, 2)+'&deg;C temperature from '+#numbers.formatDecimal(weather.tempMin-273.15, 0, 2)+'&deg;C to '+#numbers.formatDecimal(weather.tempMax-273.15, 0, 2)+'&deg;C, wind '+#numbers.formatDecimal(weather.windSpeed, 0, 2)+' m/s. clouds '+weather.cloud+'%, '+weather.pressure+' hpa'}"></p>
-							<p>
-								Geo coords 
-								<b th:text="${'['+#numbers.formatDecimal(weather.lat,0,2)+', '+#numbers.formatDecimal(weather.lon,0,2)+']'}">[-6.9039, 107.6186]</b>
-							</p>
-						</td>
-						<td>
-							<a href="#" th:data-target="'#'+${weather.weatherId}" th:text="#{web.content.common.action.remove}" data-toggle="modal"></a>
-							<div class="modal fade" th:id="${weather.weatherId}" tabindex="-1" role="dialog" aria-labelledby="weatherLabel" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="weatherLabel" th:text="#{web.content.common.modal.confirm}"></h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body"><span th:text="#{msg.confirm.weather.removed(${weather.cityName})}"></span></div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{web.content.common.btn.cancel}"></button>
-											<form th:action="@{'/weather/remove/'+${weather.weatherId}}" method="post">
-												<button type="submit" class="btn btn-primary" th:text="#{web.content.common.btn.confirm}"></button>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-				</table>
+                <table class="table table-striped" th:if="${page != null}">
+                    <tr>
+                        <th th:text="#{web.content.weather.label.name}" colspan="2"></th>
+                        <th th:text="#{web.content.common.action}"></th>
+                    </tr>
+                    <tr th:each="weather : ${page.content}">
+                        <td>
+                            <img th:src="${'http://openweathermap.org/img/w/'+weather.icon+'.png'}"></img>
+                        </td>
+                        <td>
+                            <b th:text="${weather.cityName+', '+weather.country}"></b>&nbsp;
+                            <img th:src="${'http://openweathermap.org/images/flags/'+#strings.toLowerCase(weather.country)+'.png'}"></img>&nbsp;
+                            <b th:text="${weather.description}"></b>
+                            <p th:text="${#numbers.formatDecimal(weather.temp-273.15, 0, 2)+'&deg;C temperature from '+#numbers.formatDecimal(weather.tempMin-273.15, 0, 2)+'&deg;C to '+#numbers.formatDecimal(weather.tempMax-273.15, 0, 2)+'&deg;C, wind '+#numbers.formatDecimal(weather.windSpeed, 0, 2)+' m/s. clouds '+weather.cloud+'%, '+weather.pressure+' hpa'}"></p>
+                            <p>
+                                Geo coords
+                                <b th:text="${'['+#numbers.formatDecimal(weather.lat,0,2)+', '+#numbers.formatDecimal(weather.lon,0,2)+']'}">[-6.9039,
+                                    107.6186]</b>
+                            </p>
+                        </td>
+                        <td>
+                            <a href="#" th:data-target="'#'+${weather.weatherId}"
+                               th:text="#{web.content.common.action.remove}" data-toggle="modal"></a>
+                            <div class="modal fade" th:id="${weather.weatherId}" tabindex="-1" role="dialog"
+                                 aria-labelledby="weatherLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="weatherLabel"
+                                                th:text="#{web.content.common.modal.confirm}"></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body"><span
+                                                th:text="#{msg.confirm.weather.removed(${weather.cityName})}"></span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                    th:text="#{web.content.common.btn.cancel}"></button>
+                                            <form th:action="@{'/weather/remove/'+${weather.weatherId}}" method="post">
+                                                <button type="submit" class="btn btn-primary"
+                                                        th:text="#{web.content.common.btn.confirm}"></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
-				<!-- Pagination Bar -->
-				<div th:if="${page != null}" th:fragment="paginationbar">
-					<nav aria-label="City List">
-						<ul class="pagination justify-content-center">
-							<li th:class="${page.firstPage}? 'page-item disabled' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=0,size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.first}"></a>
-							</li>
-							<li th:class="${page.hasPreviousPage}? 'page-item' : 'page-item disabled'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.number-2},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.previous}"></a>
-							</li>
-							<li th:each="item : ${page.items}" th:class="${item.current}? 'page-item active' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=${item.number-1},size=${page.size},name=${cityName})}"><span th:text="${item.number}"></span></a>
-							</li>
-							<li th:class="${page.hasNextPage}? 'page-item' : 'page-item disabled'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.number},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.next}"></a>
-							</li>
-							<li th:class="${page.lastPage}? 'page-item disabled' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.totalPages-1},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.last}"></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Pagination Bar -->
+                <div th:if="${page != null}" th:fragment="paginationbar">
+                    <nav aria-label="City List">
+                        <ul class="pagination justify-content-center">
+                            <li th:class="${page.firstPage}? 'page-item disabled' : 'page-item'">
+                                <a class="page-link" th:href="@{${page.url}(page=0,size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.first}"></a>
+                            </li>
+                            <li th:class="${page.hasPreviousPage}? 'page-item' : 'page-item disabled'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.number-2},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.previous}"></a>
+                            </li>
+                            <li th:each="item : ${page.items}"
+                                th:class="${item.current}? 'page-item active' : 'page-item'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${item.number-1},size=${page.size},name=${cityName})}"><span
+                                        th:text="${item.number}"></span></a>
+                            </li>
+                            <li th:class="${page.hasNextPage}? 'page-item' : 'page-item disabled'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.number},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.next}"></a>
+                            </li>
+                            <li th:class="${page.lastPage}? 'page-item disabled' : 'page-item'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.totalPages-1},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.last}"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 </th:block>

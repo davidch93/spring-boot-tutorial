@@ -1,38 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.dch.tutorial.cloud</groupId>
-		<artifactId>spring-cloud</artifactId>
-		<version>1.0.0</version>
-	</parent>
+    <parent>
+        <groupId>com.dch.tutorial.cloud</groupId>
+        <artifactId>spring-cloud</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
-	<artifactId>spring-cloud-eureka</artifactId>
-	<packaging>pom</packaging>
-	<name>Spring Cloud Eureka Tutorial</name>
-	<description>Tutorial project for microservices-based using Spring Cloud with Eureka Server. Eureka is a REST (Representational State Transfer) based service that is primarily used in the AWS cloud for locating services for the purpose of load balancing and failover of middle-tier servers.</description>
+    <artifactId>spring-cloud-eureka</artifactId>
+    <packaging>pom</packaging>
+    <name>Spring Cloud Eureka Tutorial</name>
+    <description>Tutorial project for microservices-based using Spring Cloud with Eureka Server. Eureka is a REST
+        (Representational State Transfer) based service that is primarily used in the AWS cloud for locating services
+        for the purpose of load balancing and failover of middle-tier servers.
+    </description>
 
-	<properties>
-		<spring-cloud-eureka.version>1.0.0</spring-cloud-eureka.version>
-	</properties>
+    <properties>
+        <spring-cloud-eureka.version>1.0.0</spring-cloud-eureka.version>
+    </properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.dch.tutorial.cloud</groupId>
-				<artifactId>spring-cloud-eureka-common</artifactId>
-				<version>${spring-cloud-eureka.version}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.dch.tutorial.cloud</groupId>
+                <artifactId>spring-cloud-eureka-common</artifactId>
+                <version>${spring-cloud-eureka.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-	<modules>
-		<module>spring-cloud-eureka-config-server</module>
-		<module>spring-cloud-eureka-gateway</module>
-		<module>spring-cloud-eureka-server</module>
-		<module>spring-cloud-eureka-common</module>
-		<module>spring-cloud-eureka-book-service</module>
-		<module>spring-cloud-eureka-rating-service</module>
-	</modules>
+    <modules>
+        <module>spring-cloud-eureka-config-server</module>
+        <module>spring-cloud-eureka-gateway</module>
+        <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-eureka-common</module>
+        <module>spring-cloud-eureka-book-service</module>
+        <module>spring-cloud-eureka-rating-service</module>
+    </modules>
 </project>

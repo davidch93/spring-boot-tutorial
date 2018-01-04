@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * Main application of Configuration Server and used to start application.
- * 
+ *
  * @author David.Christianto
  */
 @SpringBootApplication
@@ -15,13 +15,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class ConfigServerApplication {
 
-	/**
-	 * Main method to start application.
-	 * 
-	 * @param args
-	 *            arguments.
-	 */
-	public static void main(String... args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
-	}
+    /**
+     * Main method to start application.
+     *
+     * @param args arguments.
+     */
+    public static void main(String... args) {
+        SpringApplication.run(ConfigServerApplication.class, args);
+    }
 }

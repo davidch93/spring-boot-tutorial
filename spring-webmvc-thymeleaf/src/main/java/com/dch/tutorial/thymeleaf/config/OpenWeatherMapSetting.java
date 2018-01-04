@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * Class property source that contains parameter setting of open weather map
  * API.
- * 
+ *
  * @author David.Christianto
  */
 @Configuration
@@ -15,36 +15,34 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "openweathermap")
 public class OpenWeatherMapSetting {
 
-	private String api;
-	private String appId;
+    private String api;
+    private String appId;
 
-	/**
-	 * @return the api
-	 */
-	public String getApi() {
-		return api;
-	}
+    /**
+     * @return the api
+     */
+    public String getApi() {
+        return api;
+    }
 
-	/**
-	 * @param api
-	 *            the api to set
-	 */
-	public void setApi(String api) {
-		this.api = api;
-	}
+    /**
+     * @param api the api to set
+     */
+    public void setApi(String api) {
+        this.api = api;
+    }
 
-	/**
-	 * @return the appId
-	 */
-	public String getAppId() {
-		return appId;
-	}
+    /**
+     * @return the appId
+     */
+    public String getAppId() {
+        return appId;
+    }
 
-	/**
-	 * @param appId
-	 *            the appId to set
-	 */
-	public void setAppId(String appId) {
-		this.appId = appId;
-	}
+    /**
+     * @param appId the appId to set
+     */
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 }

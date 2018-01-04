@@ -1,40 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.dch.tutorial</groupId>
-	<artifactId>spring-boot-tutorial</artifactId>
-	<version>1.0.0</version>
-	<packaging>pom</packaging>
-	<name>Spring Boot Tutorial</name>
-	<description>Tutorial project for spring-boot-based. This tutorial based on Spring 4 and Java 8.</description>
+    <groupId>com.dch.tutorial</groupId>
+    <artifactId>spring-boot-tutorial</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Spring Boot Tutorial</name>
+    <description>Tutorial project for spring-boot-based. This tutorial based on Spring 4 and Java 8.</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath />
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/>
+    </parent>
 
-	<dependencies>
-		<!-- Spring -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	<modules>
-		<module>spring-camunda-rest</module>
-		<module>spring-cloud</module>
-		<module>spring-kafka</module>
-		<module>spring-webmvc-thymeleaf</module>
-	</modules>
+    <modules>
+        <module>spring-camunda-rest</module>
+        <module>spring-cloud</module>
+        <module>spring-kafka</module>
+        <module>spring-webmvc-thymeleaf</module>
+    </modules>
 </project>

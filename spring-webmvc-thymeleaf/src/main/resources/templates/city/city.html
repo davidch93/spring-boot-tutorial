@@ -1,83 +1,103 @@
 <th:block xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="home" layout:fragment="sub-content">
-	<div class="col-lg-9">
-		<div class="card mt-4">
-			<div class="card-header">
-				<span th:text="#{web.content.city.header.title}"></span>
-			</div>
-			<div class="card-body">
-				<p>
-					<label th:text="#{web.content.city.label.add}"></label>&nbsp;
-					<a th:href="@{/city/create}" th:text="#{web.content.common.btn.add}" class="btn btn-primary"></a>&nbsp;
-					<label class="success" th:text="${message}"></label>
-				</p>
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+          layout:decorator="home" layout:fragment="sub-content">
+    <div class="col-lg-9">
+        <div class="card mt-4">
+            <div class="card-header">
+                <span th:text="#{web.content.city.header.title}"></span>
+            </div>
+            <div class="card-body">
+                <p>
+                    <label th:text="#{web.content.city.label.add}"></label>&nbsp;
+                    <a th:href="@{/city/create}" th:text="#{web.content.common.btn.add}" class="btn btn-primary"></a>&nbsp;
+                    <label class="success" th:text="${message}"></label>
+                </p>
 
-				<form th:action="@{/city/search}" method="post">
-					<div class="input-group">
-						<input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="name" th:placeholder="#{web.content.city.label.name}">
-						<button th:text="#{web.content.common.btn.search}" type="submit" class="btn btn-primary"></button>
-					</div>
-				</form><br/>
+                <form th:action="@{/city/search}" method="post">
+                    <div class="input-group">
+                        <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="name"
+                               th:placeholder="#{web.content.city.label.name}">
+                        <button th:text="#{web.content.common.btn.search}" type="submit"
+                                class="btn btn-primary"></button>
+                    </div>
+                </form>
+                <br/>
 
-				<table class="table table-striped" th:if="${page != null}">
-					<tr>
-						<th th:text="#{web.content.city.label.name}"></th>
-						<th th:text="#{web.content.city.label.countrycode}"></th>
-						<th th:text="#{web.content.common.action}" colspan="2"></th>
-					</tr>
-					<tr th:each="city : ${page.content}">
-						<td th:text="${city.name}"></td>
-						<td th:text="${city.countryCode}"></td>
-						<td><a th:href="${'/city/edit/' + city.cityId}" th:text="#{web.content.common.action.edit}"></a></td>
-						<td>
-							<a href="#" th:data-target="'#'+${city.cityId}" th:text="#{web.content.common.action.remove}" data-toggle="modal"></a>
-							<div class="modal fade" th:id="${city.cityId}" tabindex="-1" role="dialog" aria-labelledby="cityLabel" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="cityLabel" th:text="#{web.content.common.modal.confirm}"></h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body"><span th:text="#{msg.confirm.city.removed(${city.name})}"></span></div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{web.content.common.btn.cancel}"></button>
-											<form th:action="@{'/city/remove/'+${city.cityId}}" method="post">
-												<button type="submit" class="btn btn-primary" th:text="#{web.content.common.btn.confirm}"></button>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-				</table>
+                <table class="table table-striped" th:if="${page != null}">
+                    <tr>
+                        <th th:text="#{web.content.city.label.name}"></th>
+                        <th th:text="#{web.content.city.label.countrycode}"></th>
+                        <th th:text="#{web.content.common.action}" colspan="2"></th>
+                    </tr>
+                    <tr th:each="city : ${page.content}">
+                        <td th:text="${city.name}"></td>
+                        <td th:text="${city.countryCode}"></td>
+                        <td><a th:href="${'/city/edit/' + city.cityId}" th:text="#{web.content.common.action.edit}"></a>
+                        </td>
+                        <td>
+                            <a href="#" th:data-target="'#'+${city.cityId}"
+                               th:text="#{web.content.common.action.remove}" data-toggle="modal"></a>
+                            <div class="modal fade" th:id="${city.cityId}" tabindex="-1" role="dialog"
+                                 aria-labelledby="cityLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cityLabel"
+                                                th:text="#{web.content.common.modal.confirm}"></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body"><span
+                                                th:text="#{msg.confirm.city.removed(${city.name})}"></span></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                    th:text="#{web.content.common.btn.cancel}"></button>
+                                            <form th:action="@{'/city/remove/'+${city.cityId}}" method="post">
+                                                <button type="submit" class="btn btn-primary"
+                                                        th:text="#{web.content.common.btn.confirm}"></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
-				<!-- Pagination Bar -->
-				<div th:if="${page != null}" th:fragment="paginationbar">
-					<nav aria-label="City List">
-						<ul class="pagination justify-content-center">
-							<li th:class="${page.firstPage}? 'page-item disabled' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=0,size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.first}"></a>
-							</li>
-							<li th:class="${page.hasPreviousPage}? 'page-item' : 'page-item disabled'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.number-2},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.previous}"></a>
-							</li>
-							<li th:each="item : ${page.items}" th:class="${item.current}? 'page-item active' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=${item.number-1},size=${page.size},name=${cityName})}"><span th:text="${item.number}"></span></a>
-							</li>
-							<li th:class="${page.hasNextPage}? 'page-item' : 'page-item disabled'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.number},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.next}"></a>
-							</li>
-							<li th:class="${page.lastPage}? 'page-item disabled' : 'page-item'">
-								<a class="page-link" th:href="@{${page.url}(page=${page.totalPages-1},size=${page.size},name=${cityName})}" th:text="#{web.content.common.pagination.last}"></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Pagination Bar -->
+                <div th:if="${page != null}" th:fragment="paginationbar">
+                    <nav aria-label="City List">
+                        <ul class="pagination justify-content-center">
+                            <li th:class="${page.firstPage}? 'page-item disabled' : 'page-item'">
+                                <a class="page-link" th:href="@{${page.url}(page=0,size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.first}"></a>
+                            </li>
+                            <li th:class="${page.hasPreviousPage}? 'page-item' : 'page-item disabled'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.number-2},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.previous}"></a>
+                            </li>
+                            <li th:each="item : ${page.items}"
+                                th:class="${item.current}? 'page-item active' : 'page-item'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${item.number-1},size=${page.size},name=${cityName})}"><span
+                                        th:text="${item.number}"></span></a>
+                            </li>
+                            <li th:class="${page.hasNextPage}? 'page-item' : 'page-item disabled'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.number},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.next}"></a>
+                            </li>
+                            <li th:class="${page.lastPage}? 'page-item disabled' : 'page-item'">
+                                <a class="page-link"
+                                   th:href="@{${page.url}(page=${page.totalPages-1},size=${page.size},name=${cityName})}"
+                                   th:text="#{web.content.common.pagination.last}"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 </th:block>
