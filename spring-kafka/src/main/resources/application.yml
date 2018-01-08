@@ -1,2 +1,10 @@
 server:
   port: 8081
+
+kafka:
+  bootstrapAddress: localhost:7092
+  topic:
+    default: test
+    partitioned: partitioned
+    filtered: filtered
+    greeting: greeting
